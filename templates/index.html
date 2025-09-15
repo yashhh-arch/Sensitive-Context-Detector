@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sensitive Content Detector</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Sensitive Content Detector</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <label>YouTube URL:</label>
+            <input type="url" name="youtube_url" placeholder="https://youtube.com/..." />
+
+            <label>Upload Video File:</label>
+            <input type="file" name="file" accept="video/*" />
+
+            <button type="submit">Detect</button>
+        </form>
+
+        {% if result %}
+            <div class="result">
+                <h3>Result:</h3>
+                <p>{{ result }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+<script>
+    console.log('Styles loaded');
+</script>
+
+</html>
